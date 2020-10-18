@@ -1,0 +1,8 @@
+#Standard .gitignore file
+
+.idea/
+*.iml
+*.iws
+log/
+target/
+*.log
