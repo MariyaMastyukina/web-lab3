@@ -1,15 +1,15 @@
-import lombok.*;
+//import lombok.*;
 
 /**
  * @author Kir
  * Created on 19.10.2020
  */
-
-@Data
-@ToString
-@EqualsAndHashCode
-@NoArgsConstructor
-@AllArgsConstructor
+//
+//@Data
+//@ToString
+//@EqualsAndHashCode
+//@NoArgsConstructor
+//@AllArgsConstructor
 public class Result {
     private String model;
     private int power;

@@ -6,11 +6,15 @@
       xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
+    <h:outputStylesheet />
     <title>Lab3</title>
-    <h:outputStylesheet library="css"></h:outputStylesheet>
 </h:head>
 <h:body>
-
-    <h:outputScript library="js" name="main.js"></h:outputScript>
+    <table id="main_table">
+        <ui:include src="index_header.xhtml"/>
+        <ui:include src="index_main.xhtml"/>
+        <ui:include src="index_footer.xhtml"/>
+    </table>
+    <h:outputScript name=""/>
 </h:body>
 </html>
