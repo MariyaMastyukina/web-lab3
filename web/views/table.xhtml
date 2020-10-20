@@ -1,0 +1,45 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <tr>
+        <td colspan="2">
+            <h:dataTable id="result_table" value="#{resultBean.responses}" var="element">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="X"/>
+                    </f:facet>
+                    <h:outputText value="#{element.x_value}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Y"/>
+                    </f:facet>
+                    <h:outputText value="#{element.y_value}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="R"/>
+                    </f:facet>
+                    <h:outputText value="#{element.r_value}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Current Time"/>
+                    </f:facet>
+                    <h:outputText value="#{element.current_time}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Execution Time"/>
+                    </f:facet>
+                    <h:outputText value="#{element.script_time}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Hit Result"/>
+                    </f:facet>
+                    <h:outputText value="#{element.hit_result}"/>
+                </h:column>
+            </h:dataTable>
+        </td>
+    </tr>
+</ui:composition>

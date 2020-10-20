@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+    <title>Lab3</title>
+    <h:outputStylesheet library="css" name="style.css"/>
+</h:head>
+<h:body>
+    <table id="main_table">
+        <ui:include src="header.xhtml"/>
+        <tr>
+            <ui:include src="text_block.xhtml"/>
+            <ui:include src="SVG.xhtml"/>
+        </tr>
+        <ui:include src="table.xhtml"/>
+        <tr>
+            <td>
+                <h:button value="Стартовая страница" outcome="index_main"/>
+            </td>
+        </tr>
+        <ui:include src="footer.xhtml"/>
+    </table>
+</h:body>
+</html>

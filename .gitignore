@@ -5,4 +5,9 @@
 *.iws
 log/
 target/
+<<<<<<< HEAD
 *.log
+=======
+*.log
+out/
+>>>>>>> 06f402631b0a678674c132d4c1546d48b1138b7f

@@ -1,0 +1,25 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <tr>
+        <td>
+            <span id="date">
+
+            </span>
+            <span id="hours">
+
+            </span>
+            <span id="minutes">
+
+            </span>
+            <span id="seconds">
+
+            </span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h:button value="Главная страница" outcome="main"/>
+        </td>
+    </tr>
+    <h:outputStylesheet lib = "css" name = "css/style.css"/>
+    <h:outputScript lib = "js" name="js/clock.js"/>
+</ui:composition>

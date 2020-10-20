@@ -2,46 +2,18 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
-    <title>Пример</title>
+
+    <title>Lab3</title>
 </h:head>
 <h:body>
-    <h:form id="newEmployeeForm">
-        <div>
-            <h:outputLabel for="first-name" value="Имя"/>
-            <h:inputText id="first-name" value="#{exampleBean.newEmployee.firstName}"/>
-        </div>
-        <div>
-            <h:outputLabel for="last-name" value="Фамилия"/>
-            <h:inputText id="last-name" value="#{exampleBean.newEmployee.lastName}"/>
-        </div>
-        <div>
-            <h:outputLabel for="age" value="Возраст"/>
-            <h:inputText id="age" value="#{exampleBean.newEmployee.age}"/>
-        </div>
-        <h:commandButton value="Добавить" action="#{exampleBean.addEmployee()}">
-            <f:ajax execute="newEmployeeForm" render="employeeTable" />
-        </h:commandButton>
-    </h:form>
-    <h:panelGroup id="employeeTable">
-        <h:dataTable value="#{exampleBean.employees}" var="employee">
-            <h:column>
-                <f:facet name="header">Имя</f:facet>
-                #{employee.firstName}
-            </h:column>
-
-            <h:column>
-                <f:facet name="header">Фамилия</f:facet>
-                #{employee.lastName}
-            </h:column>
-
-            <h:column>
-                <f:facet name="header">Возраст</f:facet>
-                #{employee.age}
-            </h:column>
-        </h:dataTable>
-    </h:panelGroup>
+    <table id="main_table">
+        <ui:include src="header.xhtml"/>
+        <ui:include src="index_main.xhtml"/>
+        <ui:include src="footer.xhtml"/>
+    </table>
 </h:body>
 </html>
