@@ -12,6 +12,6 @@ function currentTime() {
     document.getElementById('date').innerHTML=currentTime.getFullYear()+"."+currentTime.getMonth()+"."+currentTime.getDate();
     document.getElementById('hours').innerHTML=hours+":";
     document.getElementById('minutes').innerHTML=minutes+":";
-    document.getElementById('seconds').innerHTML=seconds+":";
+    document.getElementById('seconds').innerHTML=seconds;
 }
 setInterval(currentTime,7000);
