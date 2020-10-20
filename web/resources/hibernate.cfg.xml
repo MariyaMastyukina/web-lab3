@@ -7,6 +7,6 @@
         <property name="connection.password">ooq660</property>
         <property name="dialect">org.hibernate.dialect.Oracle12cDialect</property>
         <property name="show_sql">true</property>
-        <mapping resource="mapping/Result.hbm.xml"/>
+        <mapping resource="mapping/ResponseObject.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

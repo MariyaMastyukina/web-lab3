@@ -9,12 +9,17 @@ import org.hibernate.cfg.Configuration;
 public class ApplicationDemo {
     public static void main(String[] args) {
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
-        DAO<Result, String> resultDao = new ResultDAO(factory);
-        final Result result = new Result();
-        result.setModel("engine_model_04");
-        result.setPower(12345);
-        resultDao.create(result);
-        final Result res = resultDao.read("engine_model_03");
+        DAO<ResponseObject, Integer> resultDao = new ResponseObjectDAO(factory);
+        final ResponseObject responseObject = new ResponseObject();
+        responseObject.setX_value(1);
+        responseObject.setY_value(1);
+        responseObject.setR_value(1);
+        responseObject.setScript_time(123);
+        responseObject.setCurrent_time(123);
+        responseObject.setHit_result("TRUE");
+        responseObject.setJsessionid("1234t");
+        resultDao.create(responseObject);
+        final ResponseObject res = resultDao.read(1);
         System.out.println(res.toString());
         factory.close();
     }

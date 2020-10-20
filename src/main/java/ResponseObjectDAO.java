@@ -7,78 +7,77 @@ import org.hibernate.SessionFactory;
  * Created on 19.10.2020
  */
 
-public class ResultDAO implements DAO<Result, String> {
+public class ResponseObjectDAO implements DAO<ResponseObject, Integer> {
     /**
      * Connection factory to database.
      */
     private final SessionFactory factory;
 
-    public ResultDAO(@NotNull final SessionFactory factory) {
+    public ResponseObjectDAO(@NotNull final SessionFactory factory) {
         this.factory = factory;
     }
 
     /**
-     * Create new engine in engines table.
+     * Create new result in results table.
      *
-     * @param result for add.
+     * @param responseObject for add.
      */
     @Override
-    public void create(@NotNull final Result result) {
+    public void create(@NotNull final ResponseObject responseObject) {
         try (final Session session = factory.openSession()) {
 
             session.beginTransaction();
 
-            session.save(result);
+            session.save(responseObject);
 
             session.getTransaction().commit();
         }
     }
 
     /**
-     * Get engine by model.
+     * get result
      *
-     * @param model for select.
-     * @return engine with param model.
+     * @param key for select.
+     * @return responseObject with param model.
      */
     @Override
-    public Result read(@NotNull final String model) {
+    public ResponseObject read(@NotNull final Integer key) {
         try (final Session session = factory.openSession()) {
 
-            final Result result = session.get(Result.class, model);
+            final ResponseObject responseObject = session.get(ResponseObject.class, key);
 
-            return result != null ? result : new Result();
+            return responseObject != null ? responseObject : new ResponseObject();
         }
     }
 
     /**
-     * Update engine state.
      *
-     * @param result new state.
+     *
+     * @param responseObject new state.
      */
     @Override
-    public void update(@NotNull final Result result) {
+    public void update(@NotNull final ResponseObject responseObject) {
         try (Session session = factory.openSession()) {
 
             session.beginTransaction();
 
-            session.update(result);
+            session.update(responseObject);
 
             session.getTransaction().commit();
         }
     }
 
     /**
-     * Delete engine.
      *
-     * @param result for delete.
+     * @param responseObject for delete.
      */
     @Override
-    public void delete(@NotNull final Result result) {
+    public void delete(@NotNull final ResponseObject responseObject) {
         try (Session session = factory.openSession()) {
 
             session.beginTransaction();
 
-            session.delete(result);
+            session.delete(responseObject);
 
             session.getTransaction().commit();
         }

@@ -1,25 +1,37 @@
-import java.sql.Connection;
-import java.sql.SQLException;
+import lombok.NoArgsConstructor;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
-import static java.sql.DriverManager.getConnection;
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 
 /**
  * @author Kir
  * Created on 19.10.2020
  */
 
+/**
+ * USELESS right now
+ */
+@ManagedBean
+@SessionScoped
+@NoArgsConstructor
 public class DataBaseController {
-    private String dbUrl = "jdbc:oracle:thin:@localhost:4000:orbis";
-    private String username = "s285600";
-    private String password = "ooq660";
+    private SessionFactory factory;
+    private DAO<ResponseObject, Integer> resultDao;
 
-    public void connect(){
-        try (Connection connection = getConnection(dbUrl, username, password)) {
-            System.out.println("Connected");
-            String query = "INSERT INTO TEST VALUES (5, 'Kirill')";
-            connection.createStatement().execute(query);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+    @PostConstruct
+    public void init() {
+        factory = new Configuration().configure().buildSessionFactory();
+        resultDao = new ResponseObjectDAO(factory);
+    }
+
+    public DAO<ResponseObject, Integer> getResultDao() {
+        return resultDao;
+    }
+
+    public void setResultDao(DAO<ResponseObject, Integer> resultDao) {
+        this.resultDao = resultDao;
     }
 }
