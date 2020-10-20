@@ -1,34 +1,46 @@
-<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://xmlns.jcp.org/jsf/html">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
     <td>
         <h:form>
-            <p class="values">X_value</p>
-            <h:inputText placeholder="Enter X value (-5..5)"/>
+            <h:outputLabel for="x_value" class="values">X_value</h:outputLabel>
+            <h:inputText placeholder="Enter X value (-5..5)" id="x_value">
+                <f:validator validatorId="x_validator"/>
+                <f:ajax render="x-error"/>
+            </h:inputText>
+            <h:message id="x-error" for="x_value"/>
             <br/>
-            <p class="values">Y_value</p>
-            <h:inputText placeholder="Enter Y value (-3..5)"/>
+            <h:outputLabel for="y_value" class="values">Y_value</h:outputLabel>
+            <h:inputText placeholder="Enter Y value (-3..5)" id="y_value">
+                <f:validator validatorId="y_validator"/>
+                <f:ajax render="y-error"/>
+            </h:inputText>
+            <h:message id="y-error" for="y_value"/>
             <br/>
-            <p class="values">R_value</p>
+            <h:outputText class="values">R_value</h:outputText>
             <table id="r_values">
                 <tr>
                     <td>
-                        <h:commandButton value="1" type="button"/>
+                        <h:commandButton value="1" type="button" class="r_value"/>
                     </td>
                     <td>
-                        <h:commandButton value="2" type="button"/>
+                        <h:commandButton value="2" type="button" class="r_value"/>
                     </td>
                     <td>
-                        <h:commandButton value="3" type="button"/>
+                        <h:commandButton value="3" type="button" class="r_value"/>
 
                     </td>
                     <td>
-                        <h:commandButton value="4" type="button"/>
+                        <h:commandButton value="4" type="button" class="r_value"/>
 
                     </td>
                     <td>
-                        <h:commandButton value="5" type="button"/>
+                        <h:commandButton value="5" type="button" class="r_value"/>
                     </td>
                 </tr>
             </table>
+            <br/>
+            <h:commandButton type="submit" value="Submit"/>
+            <h:commandButton type="button" value="Reset"/>
         </h:form>
     </td>
 </ui:composition>

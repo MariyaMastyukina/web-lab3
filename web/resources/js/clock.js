@@ -1,16 +1,23 @@
 function currentTime() {
     var currentTime=new Date();
-    var hours=currentTime.getHours();
     var minutes=currentTime.getMinutes();
     var seconds=currentTime.getSeconds();
+    var day=currentTime.getDate();
+    var month=currentTime.getMonth();
     if (minutes<10){
         minutes='0'+minutes;
     }
     if (seconds<10){
         seconds='0'+seconds;
     }
-    document.getElementById('date').innerHTML=currentTime.getFullYear()+"."+currentTime.getMonth()+"."+currentTime.getDate();
-    document.getElementById('hours').innerHTML=hours+":";
+    if (day<10){
+        day='0'+day;
+    }
+    if(month<10){
+        month='0'+month;
+    }
+    document.getElementById('date').innerHTML=day+"."+month+"."+currentTime.getFullYear();
+    document.getElementById('hours').innerHTML=currentTime.getHours()+":";
     document.getElementById('minutes').innerHTML=minutes+":";
     document.getElementById('seconds').innerHTML=seconds;
 }

@@ -10,7 +10,11 @@
 </h:head>
 <h:body>
     <table id="main_table">
-        <ui:include src="header.xhtml"/>
+        <tr class="header">
+            <td colspan="2">
+                <ui:include src="header.xhtml"/>
+            </td>
+        </tr>
         <tr>
             <ui:include src="text_block.xhtml"/>
             <ui:include src="SVG.xhtml"/>
@@ -18,10 +22,14 @@
         <ui:include src="table.xhtml"/>
         <tr>
             <td>
-                <h:button value="Стартовая страница" outcome="index_main"/>
+                <h:button value="Стартовая страница" outcome="index"/>
             </td>
         </tr>
-        <ui:include src="footer.xhtml"/>
+        <tr class="footer">
+            <td colspan="2">
+                <ui:include src="footer.xhtml"/>
+            </td>
+        </tr>
     </table>
 </h:body>
 </html>
