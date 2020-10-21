@@ -12,7 +12,7 @@ import javax.faces.validator.ValidatorException;
 import java.math.BigDecimal;
 
 @FacesValidator("x_validator")
-public class XValidator implements javax.faces.validator.Validator {
+public class XValidator implements Validator {
     @Override
     public void validate(FacesContext facesContext, UIComponent uiComponent, Object o) throws ValidatorException {
         try {

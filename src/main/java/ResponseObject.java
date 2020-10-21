@@ -1,5 +1,5 @@
 
-//import lombok.*;
+import lombok.*;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -8,11 +8,11 @@ import javax.faces.bean.SessionScoped;
  * @author Kir
  * Created on 19.10.2020
  */
-//
-//@Data
-//@EqualsAndHashCode
-//@NoArgsConstructor
-//@AllArgsConstructor
+
+@Data
+@EqualsAndHashCode
+@NoArgsConstructor
+@AllArgsConstructor
 @ManagedBean
 @SessionScoped
 
