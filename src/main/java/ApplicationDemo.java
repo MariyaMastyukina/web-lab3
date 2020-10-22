@@ -14,8 +14,7 @@ public class ApplicationDemo {
         responseObject.setX_value(1);
         responseObject.setY_value(1);
         responseObject.setR_value(1);
-        responseObject.setScript_time(123);
-        responseObject.setCurrent_time(123);
+        responseObject.setScript_time(123);;
         responseObject.setHit_result("TRUE");
         responseObject.setJsessionid("1234t");
         resultDao.create(responseObject);

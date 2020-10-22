@@ -3,6 +3,7 @@ import lombok.*;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import java.io.Serializable;
 
 /**
  * @author Kir
@@ -13,18 +14,18 @@ import javax.faces.bean.SessionScoped;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-@ManagedBean
+@ManagedBean(name = "resultObject")
 @SessionScoped
 
 //Model
-public class ResponseObject {
+public class ResponseObject implements Serializable {
 
     private int id;
     private double x_value;
     private double y_value;
     private int r_value;
     private double script_time;
-    private double current_time;
+    private String current_time;
     private String jsessionid;
 
     public String getJsessionid() {
@@ -35,11 +36,11 @@ public class ResponseObject {
         this.jsessionid = jsessionid;
     }
 
-    public double getCurrent_time() {
+    public String getCurrent_time() {
         return current_time;
     }
 
-    public void setCurrent_time(double current_time) {
+    public void setCurrent_time(String current_time) {
         this.current_time = current_time;
     }
 

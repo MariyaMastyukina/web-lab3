@@ -3,14 +3,14 @@
     <td>
         <h:form id="text_block">
             <h:outputLabel for="x_value" class="values">X_value</h:outputLabel>
-            <h:inputText placeholder="Enter X value (-5..5)" id="x_value">
+            <h:inputText placeholder="Enter X value (-5..5)" id="x_value" value="#{resultBean.responseObject.x_value}">
                 <f:validator validatorId="x_validator"/>
                 <f:ajax render="x-error"/>
             </h:inputText>
             <h:message id="x-error" for="x_value"/>
             <br/>
             <h:outputLabel for="y_value" class="values">Y_value</h:outputLabel>
-            <h:inputText placeholder="Enter Y value (-3..5)" id="y_value">
+            <h:inputText placeholder="Enter Y value (-3..5)" id="y_value" value="#{resultBean.responseObject.y_value}">
                 <f:validator validatorId="y_validator"/>
                 <f:ajax render="y-error"/>
             </h:inputText>
@@ -20,27 +20,32 @@
             <table id="r_values">
                 <tr>
                     <td>
-                        <h:commandButton value="1" type="button" class="r_value"/>
+                        <h:commandButton value="1" type="button" class="r_value"
+                                         action="#{resultBean.responseObject.setR_value(1)}"/>
                     </td>
                     <td>
-                        <h:commandButton value="2" type="button" class="r_value"/>
+                        <h:commandButton value="2" type="button" class="r_value"
+                                         action="#{resultBean.responseObject.setR_value(2)}"/>
                     </td>
                     <td>
-                        <h:commandButton value="3" type="button" class="r_value"/>
+                        <h:commandButton value="3" type="button" class="r_value"
+                                         action="#{resultBean.responseObject.setR_value(3)}"/>
 
                     </td>
                     <td>
-                        <h:commandButton value="4" type="button" class="r_value"/>
+                        <h:commandButton value="4" type="button" class="r_value"
+                                         action="#{resultBean.responseObject.setR_value(4)}"/>
 
                     </td>
                     <td>
-                        <h:commandButton value="5" type="button" class="r_value"/>
+                        <h:commandButton value="5" type="button" class="r_value"
+                                         action="#{resultBean.responseObject.setR_value(5)}"/>
                     </td>
                 </tr>
             </table>
             <br/>
-            <h:commandButton type="submit" value="Submit"/>
-            <h:commandButton type="button" value="Reset"/>
+            <h:commandButton type="submit" value="Submit" action="#{resultBean.execute}"/>
+            <h:commandButton type="submit" value="Reset" action="#{resultBean.remove}"/>
         </h:form>
     </td>
     <h:outputScript library="js" name="main.js"/>

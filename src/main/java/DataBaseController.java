@@ -1,3 +1,5 @@
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -5,6 +7,7 @@ import org.hibernate.cfg.Configuration;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import java.io.Serializable;
 
 /**
  * @author Kir
@@ -14,17 +17,17 @@ import javax.faces.bean.SessionScoped;
 /**
  * USELESS right now
  */
-@ManagedBean
-@SessionScoped
+@Data
+@AllArgsConstructor
 @NoArgsConstructor
-public class DataBaseController {
+public class DataBaseController implements Serializable {
     private SessionFactory factory;
     private DAO<ResponseObject, Integer> resultDao;
 
-    @PostConstruct
     public void init() {
         factory = new Configuration().configure().buildSessionFactory();
         resultDao = new ResponseObjectDAO(factory);
+        System.out.println("Init of DB");
     }
 
     public DAO<ResponseObject, Integer> getResultDao() {

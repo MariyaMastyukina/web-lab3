@@ -6,13 +6,13 @@
 <hibernate-mapping xmlns="http://www.hibernate.org/xsd/hibernate-mapping">
 
     <class name="ResponseObject" table="results">
-        <id name="id" column="id"/>
+        <id name="jsessionid" column="jsessionid"/>
+        <property name="id" column="id"/>
         <property name="x_value" column="x_value"/>
         <property name="y_value" column="y_value"/>
         <property name="r_value" column="r_value"/>
         <property name="script_time" column="script_time"/>
         <property name="current_time" column="current_time"/>
         <property name="hit_result" column="hit_result"/>
-        <property name="jsessionid" column="jsessionid"/>
     </class>
 </hibernate-mapping>

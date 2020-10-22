@@ -51,8 +51,6 @@ public class ResponseObjectDAO implements DAO<ResponseObject, Integer> {
     }
 
     /**
-     *
-     *
      * @param responseObject new state.
      */
     @Override
@@ -68,7 +66,6 @@ public class ResponseObjectDAO implements DAO<ResponseObject, Integer> {
     }
 
     /**
-     *
      * @param responseObject for delete.
      */
     @Override
@@ -80,6 +77,9 @@ public class ResponseObjectDAO implements DAO<ResponseObject, Integer> {
             session.delete(responseObject);
 
             session.getTransaction().commit();
+
+        } catch (Exception e) {
+            factory.getCurrentSession().getTransaction().rollback();
         }
     }
 }
