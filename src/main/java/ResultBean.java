@@ -49,6 +49,7 @@ public class ResultBean implements Serializable {
         //TODO forward to db controller then get response and update *.xhtml
         FacesContext facesContext = FacesContext.getCurrentInstance();
         System.out.println("execute method");
+        System.out.println(responseObject.getR_value() + " = R VALUE");
         //if (validate(responseObject.getX_value(), responseObject.getY_value(), responseObject.getR_value())) {
             long script_time = System.currentTimeMillis();
             responseObject.setCurrent_time(new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime()));
@@ -62,6 +63,11 @@ public class ResultBean implements Serializable {
                 e.printStackTrace();
             }
             responses.add(responseObject);
+            responseObject = new ResponseObject();
+            System.out.println(responses.size());
+        for (ResponseObject s:responses) {
+            System.out.println(s.toString());
+        }
 //        } else {
 //            //TODO sth
 //        }
@@ -74,14 +80,14 @@ public class ResultBean implements Serializable {
         FacesContext facesContext = FacesContext.getCurrentInstance();
         while (respIterator.hasNext()) {
             ResponseObject cur = respIterator.next();
-            if (cur.getJsessionid().equals(facesContext.getExternalContext().getSessionId(false))) {
+            //if (cur.getJsessionid().equals(facesContext.getExternalContext().getSessionId(false))) {
                 try {
-                    dbController.getResultDao().delete(cur);
+                    //dbController.getResultDao().delete(cur);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 respIterator.remove();
-            }
+            //}
         }
 
     }

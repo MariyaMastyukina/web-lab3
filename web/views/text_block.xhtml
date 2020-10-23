@@ -1,5 +1,5 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://xmlns.jcp.org/jsf/html"
-                xmlns:f="http://xmlns.jcp.org/jsf/core">
+                xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
     <td>
         <h:form id="text_block">
             <h:outputLabel for="x_value" class="values">X_value</h:outputLabel>
@@ -20,26 +20,35 @@
             <table id="r_values">
                 <tr>
                     <td>
-                        <h:commandButton value="1" type="button" class="r_value"
-                                         action="#{resultBean.responseObject.setR_value(1)}"/>
+                        <h:commandButton value="1" class="r_value" type="button">
+                            <f:ajax execute="#{resultBean.responseObject.setR_value(1)}"/>
+                            <f:setPropertyActionListener value="1" target="#{resultBean.responseObject.r_value}"/>
+                        </h:commandButton>
                     </td>
                     <td>
-                        <h:commandButton value="2" type="button" class="r_value"
-                                         action="#{resultBean.responseObject.setR_value(2)}"/>
+                        <h:commandButton value="2" class="r_value" type="button">
+                            <f:ajax execute="#{resultBean.responseObject.setR_value(2)}"/>
+                            <f:setPropertyActionListener value="2" target="#{resultBean.responseObject.r_value}"/>
+                        </h:commandButton>
                     </td>
                     <td>
-                        <h:commandButton value="3" type="button" class="r_value"
-                                         action="#{resultBean.responseObject.setR_value(3)}"/>
+                        <h:commandButton value="3" class="r_value" type="button">
+                            <f:ajax execute="#{resultBean.responseObject.setR_value(3)}"/>
+                            <f:setPropertyActionListener value="3" target="#{resultBean.responseObject.r_value}"/>
+                        </h:commandButton>
+                    </td>
+                    <td>
+                        <h:commandButton value="4" class="r_value" type="button">
+                            <f:ajax execute="#{resultBean.responseObject.setR_value(4)}"/>
+                            <f:setPropertyActionListener value="4" target="#{resultBean.responseObject.r_value}"/>
+                        </h:commandButton>
 
                     </td>
                     <td>
-                        <h:commandButton value="4" type="button" class="r_value"
-                                         action="#{resultBean.responseObject.setR_value(4)}"/>
-
-                    </td>
-                    <td>
-                        <h:commandButton value="5" type="button" class="r_value"
-                                         action="#{resultBean.responseObject.setR_value(5)}"/>
+                        <h:commandButton value="5" class="r_value" type="button">
+                            <f:ajax execute="#{resultBean.responseObject.setR_value(5)}"/>
+                            <f:setPropertyActionListener value="5" target="#{resultBean.responseObject.r_value}"/>
+                        </h:commandButton>
                     </td>
                 </tr>
             </table>
