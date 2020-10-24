@@ -76,6 +76,10 @@ public class ResponseObjectDAO implements DAO<ResponseObject, Integer> {
 
             session.delete(responseObject);
 
+            session.flush();
+
+            session.refresh(responseObject);
+
             session.getTransaction().commit();
 
         } catch (Exception e) {

@@ -37,4 +37,5 @@ public class DataBaseController implements Serializable {
     public void setResultDao(DAO<ResponseObject, Integer> resultDao) {
         this.resultDao = resultDao;
     }
+
 }

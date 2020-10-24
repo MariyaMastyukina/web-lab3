@@ -48,15 +48,13 @@ public class ResultBean implements Serializable {
     public void execute() {
         //TODO forward to db controller then get response and update *.xhtml
         FacesContext facesContext = FacesContext.getCurrentInstance();
-        System.out.println("execute method");
-        System.out.println(responseObject.getR_value() + " = R VALUE");
-        //if (validate(responseObject.getX_value(), responseObject.getY_value(), responseObject.getR_value())) {
+        if (validate(responseObject.getX_value(), responseObject.getY_value(), responseObject.getR_value())) {
             long script_time = System.currentTimeMillis();
             responseObject.setCurrent_time(new SimpleDateFormat("HH:mm:ss").format(Calendar.getInstance().getTime()));
             String res = checkODZ(responseObject.getX_value(), responseObject.getY_value(), responseObject.getR_value()) ? "TRUE" : "FALSE";
             responseObject.setHit_result(res);
             responseObject.setScript_time(System.currentTimeMillis() - script_time);
-            responseObject.setJsessionid(facesContext.getExternalContext().getSessionId(false));
+            responseObject.setJsessionid(facesContext.getExternalContext().getSessionId(false) + ".mikirill");
             try {
                 dbController.getResultDao().create(responseObject);
             } catch (Exception e) {
@@ -64,9 +62,9 @@ public class ResultBean implements Serializable {
             }
             responses.add(responseObject);
             responseObject = new ResponseObject();
-            System.out.println(responses.size());
-        for (ResponseObject s:responses) {
-            System.out.println(s.toString());
+            for (ResponseObject s : responses) {
+                System.out.println(s.toString());
+            }
         }
 //        } else {
 //            //TODO sth
@@ -78,22 +76,24 @@ public class ResultBean implements Serializable {
         Iterator<ResponseObject> respIterator = responses.iterator();
         System.out.println("Remove method");
         FacesContext facesContext = FacesContext.getCurrentInstance();
+        String jsessionid  = facesContext.getExternalContext().getSessionId(true);
+        System.out.println(jsessionid + " ID");
         while (respIterator.hasNext()) {
             ResponseObject cur = respIterator.next();
-            //if (cur.getJsessionid().equals(facesContext.getExternalContext().getSessionId(false))) {
+            if (cur.getJsessionid().equals(jsessionid + ".mikirill")) {
                 try {
-                    //dbController.getResultDao().delete(cur);
+                    dbController.getResultDao().delete(cur);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 respIterator.remove();
-            //}
+            }
         }
 
     }
 
     private boolean validate(Double x, Double y, int r) {
-        int[] a = {1, 2, 3, 4, 5};
+        Integer[] a = {1, 2, 3, 4, 5};
         return (x > -5 && x < 5 && y > -3 && y < 5 && Arrays.asList(a).contains(r));
     }
 
