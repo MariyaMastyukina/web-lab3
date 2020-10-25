@@ -32,7 +32,6 @@ function createPoint(cx, cy, r) {
 }
 
 let dots = '';
-
 function savePoints(cx, cy, r) {
     dots += cx.toString() + ';' + cy.toString() + ';' + r.toString() + ';';
     localStorage.setItem('dots', dots);
@@ -40,6 +39,7 @@ function savePoints(cx, cy, r) {
     let y_value = ((150 - cy) * r / 100);
     sendJsf([{ name: "x", value: x_value }, { name: "y", value: y_value }, { name: "r", value: r }]);
 }
-function sendJsf() {
 
+function sendJsf() {
+    
 }

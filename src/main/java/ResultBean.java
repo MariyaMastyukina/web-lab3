@@ -1,10 +1,10 @@
 import lombok.NoArgsConstructor;
 
 import javax.annotation.PostConstruct;
-import javax.el.MethodExpression;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import java.io.IOException;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -46,7 +46,7 @@ public class ResultBean implements Serializable {
         this.responseObject = responseObject;
     }
 
-    public void execute() {
+    public void execute() throws IOException {
         //TODO forward to db controller then get response and update *.xhtml
         FacesContext facesContext = FacesContext.getCurrentInstance();
         if (validate(responseObject.getX_value(), responseObject.getY_value(), responseObject.getR_value())) {
@@ -66,13 +66,13 @@ public class ResultBean implements Serializable {
             for (ResponseObject s : responses) {
                 System.out.println(s.toString());
             }
+            FacesContext.getCurrentInstance().getExternalContext().redirect("../views/main.xhtml");
         } else {
             //TODO sth
-            System.out.println("ТЫ ПИДОР");
         }
     }
 
-    public void getJs() {
+    public void getJs() throws IOException {
         FacesContext facesContext = FacesContext.getCurrentInstance();
         String x = facesContext.getExternalContext().getRequestParameterMap().get("x");
         String y = facesContext.getExternalContext().getRequestParameterMap().get("y");
@@ -129,8 +129,8 @@ public class ResultBean implements Serializable {
     }
 
     private boolean checkSecondQ(double x, double y, int r) {
-        System.out.println(((double)r / 2));
-        return (x > -((double)r / 2) && y < r);
+        System.out.println(((double) r / 2));
+        return (x > -((double) r / 2) && y < r);
     }
 
     private boolean checkThirdQ(double x, double y, int r) {

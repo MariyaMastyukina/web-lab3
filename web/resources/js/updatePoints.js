@@ -9,7 +9,8 @@ function updatePoints() {
     arr.forEach(p => {
         let new_cx = (Number(p.getAttribute('cx')) - 150) * Number(p.getAttribute('r_value')) / r + 150;
         let new_cy = 150 - (150 - Number(p.getAttribute('cy'))) * Number(p.getAttribute('r_value')) / r;
-        createPoint(new_cx, new_cy, r);
         savePoints(new_cx, new_cy, r);
+        createPoint(new_cx, new_cy, r);
     });
 }
+

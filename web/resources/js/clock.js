@@ -19,7 +19,7 @@ function currentTime() {
     document.getElementById('date').innerHTML = day + "." + month + "." + currentTime.getFullYear();
     document.getElementById('hours').innerHTML = currentTime.getHours() + ":";
     document.getElementById('minutes').innerHTML = minutes + ":";
-    document.getElementById('seconds').innerHTML = seconds;
+    document.getElementById('seconds').innerHTML = String(seconds);
 }
 
 setInterval(currentTime, 7000);
