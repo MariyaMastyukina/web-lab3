@@ -7,7 +7,7 @@ document.getElementById('svg').addEventListener('click', e => {
     let cx = SVGPoint.x;
     let cy = SVGPoint.y;
     let r = 0;
-    document.getElementsByClassName("text_block:r_value").forEach(button => {
+    Array.prototype.slice.call(document.getElementsByClassName("text_block:r_value")).forEach(button => {
         if (button.classList.contains("r_active")) r = button.value;
     });
     if (r !== 0) {

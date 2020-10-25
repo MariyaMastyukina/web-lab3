@@ -2,7 +2,8 @@ let r = 0;
 
 function updatePoints() {
     dots = '';
-    document.getElementsByClassName("text_block:r_value").forEach(button => {
+    let arr = Array.prototype.slice.call(document.getElementsByClassName("text_block:r_value"));
+    arr.forEach(button => {
         if (button.classList.contains("r_active")) r = button.value;
     });
     document.getElementsByClassName("points").forEach(p => {

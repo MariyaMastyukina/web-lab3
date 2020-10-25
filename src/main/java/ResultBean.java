@@ -74,7 +74,6 @@ public class ResultBean implements Serializable {
     public void remove() {
         //TODO use client session (through jsp session and manage bean)
         Iterator<ResponseObject> respIterator = responses.iterator();
-        System.out.println("Remove method");
         FacesContext facesContext = FacesContext.getCurrentInstance();
         String jsessionid  = facesContext.getExternalContext().getSessionId(true);
         System.out.println(jsessionid + " ID");

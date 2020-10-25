@@ -1,4 +1,5 @@
-document.getElementsByClassName("text_block:r_value").forEach((button) => {
+let arr = Array.prototype.slice.call(document.getElementsByClassName("text_block:r_value"));
+arr.forEach((button) => {
     button.addEventListener('click', () => {
         document.getElementsByClassName("text_block:r_value").forEach((button) => {
             if (button.classList.contains("r_active")) button.classList.remove("r_active");
@@ -16,5 +17,4 @@ window.performance = function () {
     for (let i = 0; i < dots.length - 2; i + 3) {
         createPoint(Number(dots[i]), Number(dots[i + 1]), Number(dots[i + 2]));
     }
-}
-//some js code
+};
