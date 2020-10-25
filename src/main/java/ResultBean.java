@@ -25,7 +25,7 @@ public class ResultBean implements Serializable {
         responseObject = new ResponseObject();
         responses = new ArrayList<>();
         dbController = new DataBaseController();
-        dbController.init();
+//        dbController.init();
         //init responses
     }
 

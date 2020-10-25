@@ -3,20 +3,23 @@
     <td>
         <h:form id="text_block">
             <h:outputLabel for="x_value" class="values">X_value</h:outputLabel>
-            <h:inputText placeholder="Enter X value (-5..5)" id="x_value" value="#{resultBean.responseObject.x_value}">
+            <br/>
+            <h:inputText placeholder="Enter X value (-5..5)" id="x_value" class="input_text" value="#{resultBean.responseObject.x_value}">
                 <f:validator validatorId="x_validator"/>
                 <f:ajax render="x-error"/>
             </h:inputText>
             <h:message id="x-error" for="x_value"/>
             <br/>
             <h:outputLabel for="y_value" class="values">Y_value</h:outputLabel>
-            <h:inputText placeholder="Enter Y value (-3..5)" id="y_value" value="#{resultBean.responseObject.y_value}">
+            <br/>
+            <h:inputText placeholder="Enter Y value (-3..5)" id="y_value" class="input_text" value="#{resultBean.responseObject.y_value}">
                 <f:validator validatorId="y_validator"/>
                 <f:ajax render="y-error"/>
             </h:inputText>
             <h:message id="y-error" for="y_value"/>
             <br/>
-            <h:outputText class="values">R_value</h:outputText>
+            <h:outputLabel class="values">R_value</h:outputLabel>
+            <br/>
             <table id="r_values">
                 <tr>
                     <td>
@@ -53,8 +56,8 @@
                 </tr>
             </table>
             <br/>
-            <h:commandButton type="submit" value="Submit" action="#{resultBean.execute}"/>
-            <h:commandButton type="submit" value="Reset" action="#{resultBean.remove}"/>
+            <h:commandButton class="buttons" type="submit" value="Submit" action="#{resultBean.execute}"/>
+            <h:commandButton class="buttons" id="reset_button" type="submit" value="Reset" action="#{resultBean.remove}"/>
         </h:form>
     </td>
     <h:outputScript library="js" name="main.js"/>
