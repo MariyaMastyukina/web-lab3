@@ -8,7 +8,6 @@ function updatePoints() {
         });
         document.querySelectorAll("circle").forEach((e) => e.remove());
         let points = localStorage.getItem('dots').split(';');
-        alert(points);
         for (let i = 0; i < points.length - 2; i += 3) {
             let new_cx = (Number(points[i]) - 150) * Number(points[i + 2]) / r + 150;
             let new_cy = 150 - (150 - Number(points[i + 1])) * Number(points[i + 2]) / r;
