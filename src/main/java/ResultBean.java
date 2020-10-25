@@ -1,6 +1,7 @@
 import lombok.NoArgsConstructor;
 
 import javax.annotation.PostConstruct;
+import javax.el.MethodExpression;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -65,17 +66,32 @@ public class ResultBean implements Serializable {
             for (ResponseObject s : responses) {
                 System.out.println(s.toString());
             }
+        } else {
+            //TODO sth
+            System.out.println("ТЫ ПИДОР");
         }
-//        } else {
-//            //TODO sth
-//        }
+    }
+
+    public void getJs() {
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        String x = facesContext.getExternalContext().getRequestParameterMap().get("x");
+        String y = facesContext.getExternalContext().getRequestParameterMap().get("y");
+        String r = facesContext.getExternalContext().getRequestParameterMap().get("r");
+        responseObject.setX_value(Double.parseDouble(x));
+        responseObject.setY_value(Double.parseDouble(y));
+        responseObject.setR_value(Integer.parseInt(r));
+        System.out.println(responseObject.toString());
+        System.out.println(x);
+        System.out.println(y);
+        System.out.println(r);
+        execute();
     }
 
     public void remove() {
         //TODO use client session (through jsp session and manage bean)
         Iterator<ResponseObject> respIterator = responses.iterator();
         FacesContext facesContext = FacesContext.getCurrentInstance();
-        String jsessionid  = facesContext.getExternalContext().getSessionId(true);
+        String jsessionid = facesContext.getExternalContext().getSessionId(true);
         System.out.println(jsessionid + " ID");
         while (respIterator.hasNext()) {
             ResponseObject cur = respIterator.next();
@@ -113,7 +129,8 @@ public class ResultBean implements Serializable {
     }
 
     private boolean checkSecondQ(double x, double y, int r) {
-        return (x < (double) r / 2 && y < r);
+        System.out.println(((double)r / 2));
+        return (x > -((double)r / 2) && y < r);
     }
 
     private boolean checkThirdQ(double x, double y, int r) {
@@ -123,4 +140,5 @@ public class ResultBean implements Serializable {
     private boolean checkFourthQ(double x, double y, int r) {
         return (x - y <= r);
     }
+
 }
