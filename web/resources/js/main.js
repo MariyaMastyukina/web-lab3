@@ -1,7 +1,7 @@
-let arr = Array.prototype.slice.call(document.getElementsByClassName("text_block:r_value"));
+let arr = Array.prototype.slice.call(document.getElementsByClassName("r_value"));
 arr.forEach((button) => {
     button.addEventListener('click', () => {
-        document.getElementsByClassName("text_block:r_value").forEach((button) => {
+        Array.prototype.slice.call(document.getElementsByClassName("r_value")).forEach((button) => {
             if (button.classList.contains("r_active")) button.classList.remove("r_active");
             button.style.backgroundColor = "red";
         });

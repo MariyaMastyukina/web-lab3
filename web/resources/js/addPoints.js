@@ -1,4 +1,5 @@
 document.getElementById('svg').addEventListener('click', e => {
+    e.preventDefault();
     let svg = document.getElementById('svg');
     let HTMLPoint = svg.createSVGPoint();
     HTMLPoint.x = e.clientX;
@@ -7,9 +8,11 @@ document.getElementById('svg').addEventListener('click', e => {
     let cx = SVGPoint.x;
     let cy = SVGPoint.y;
     let r = 0;
-    Array.prototype.slice.call(document.getElementsByClassName("text_block:r_value")).forEach(button => {
+    Array.prototype.slice.call(document.getElementsByClassName("r_value")).forEach(button => {
+        console.log(button.value);
         if (button.classList.contains("r_active")) r = button.value;
     });
+    console.log("r = " + r);
     if (r !== 0) {
         createPoint(cx, cy, r);
         savePoints(cx, cy, r, dots);
@@ -25,6 +28,7 @@ function createPoint(cx, cy, r) {
     circle.setAttribute('r', "3");
     circle.setAttribute('class', 'points');
     circle.setAttribute('r_value', r.toString());
+    document.getElementById('svg').appendChild(circle);
 }
 
 let dots = '';

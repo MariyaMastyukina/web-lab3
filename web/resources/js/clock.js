@@ -1,9 +1,9 @@
 function currentTime() {
-    var currentTime = new Date();
-    var minutes = currentTime.getMinutes();
-    var seconds = currentTime.getSeconds();
-    var day = currentTime.getDate();
-    var month = currentTime.getMonth();
+    let currentTime = new Date();
+    let minutes = currentTime.getMinutes();
+    let seconds = currentTime.getSeconds();
+    let day = currentTime.getDate();
+    let month = currentTime.getMonth();
     if (minutes < 10) {
         minutes = '0' + minutes;
     }
