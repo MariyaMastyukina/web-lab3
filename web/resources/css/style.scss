@@ -83,3 +83,35 @@
   font-size: 40px;
   height: 30px;
 }
+.modal {
+  display: none;
+  position: absolute;
+  left: 45%;
+  top: 40%;
+  height: 50%;
+  width: 45%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 3;
+
+  &-content {
+    text-align: center;
+    color: white;
+    margin-top: 5%;
+    margin-left: 12%;
+    width: 75%;
+    height: 75%;
+    font-family: monospace;
+    font-size: 30px;
+    font-weight: 400;
+    background-size: cover;
+
+    .close {
+      color: white;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+}

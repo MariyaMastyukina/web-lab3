@@ -1,0 +1,11 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html">
+    <h:form id="modal_window">
+        <h:panelGroup id="myModal" class="modal" layout="block" widgetvar="myModal">
+            <h:panelGroup class="modal-content" layout="block">
+                <h:panelGroup class="close" id="close_button">x</h:panelGroup>
+                <h:panelGroup id="span_text">Вы ввели некорректные данные</h:panelGroup>
+            </h:panelGroup>
+        </h:panelGroup>
+    </h:form>
+    <h:outputStylesheet library="css" name="style.css"/>
+</ui:composition>

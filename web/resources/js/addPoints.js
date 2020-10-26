@@ -20,7 +20,7 @@ document.getElementById('svg').addEventListener('click', e => {
         createPoint(cx, cy, r);
         savePoints(cx, cy, r, dots);
     } else {
-        alert("Выберите знаечние для R");
+        showModalWindow("Выберите значение для R!\n"+"Не расстраивайте котика...")
     }
 });
 
@@ -55,8 +55,18 @@ function checkArea(cx, cy, r) {
     let y = (150 - cy) * r / 100;
     return (x >= 0 && y >= x - r && x * x + y * y <= r * r) || (x <= 0 && y >= 0 && x >= -r / 2 && y <= r);
 }
-
-
+let modal = document.getElementById('modal_window:myModal');
+let span_text = document.getElementById('modal_window:span_text');
+function showModalWindow(text) {
+    // alert(span_text.innerText);
+    modal.style.display = "block";
+    span_text.innerText = text;
+}
+$(document).ready(function () {
+    $(".modal .modal-content .close").click(function () {
+        $(this).parents(".modal-content").parents(".modal").animate({opacity: 'hide'}, "slow");
+    })
+});
 function sendJsf() {
 
 }
