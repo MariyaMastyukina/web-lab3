@@ -1,20 +1,18 @@
-let arr = Array.prototype.slice.call(document.getElementsByClassName("r_value"));
-arr.forEach((button) => {
+Array.prototype.slice.call(document.getElementsByClassName("r_value")).forEach((button) => {
     button.addEventListener('click', () => {
         Array.prototype.slice.call(document.getElementsByClassName("r_value")).forEach((button) => {
             if (button.classList.contains("r_active")) button.classList.remove("r_active");
-            button.style.backgroundColor = "red";
+            button.style.backgroundColor = "#E6E6FA";
         });
         //change color
-        button.style.backgroundColor = "green";
+        button.style.backgroundColor = "#D8BFD8";
         button.classList.add("r_active");
-        //update SVGpoints
+        //update SVG points
         updatePoints();
     });
 });
-window.performance = function () {
-    let dots = localStorage.getItem('dots').split(';');
-    for (let i = 0; i < dots.length - 2; i + 3) {
-        createPoint(Number(dots[i]), Number(dots[i + 1]), Number(dots[i + 2]));
-    }
-};
+document.getElementById("reset_button").addEventListener('click', () => {
+    document.querySelectorAll("circle").forEach((e) => e.remove());
+    localStorage.setItem('dots', '');
+    dots = '';
+});

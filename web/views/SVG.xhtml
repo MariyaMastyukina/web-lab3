@@ -45,5 +45,11 @@
     <h:outputScript library="js" name="addPoints.js"/>
     <h:outputScript library="js" name="updatePoints.js"/>
     <p:remoteCommand name="sendJsf" action="#{resultBean.getJs}" update="result_table">
+<!--        <script>-->
+<!--            let cx = SVGPoint.x;-->
+<!--            let x = (cx - 150) * r / 100;-->
+<!--            let y = (150 - cy) * r / 100;-->
+<!--            sendJsf([{name: "x", value: x}, {name: "y", value: y}, {name: "r", value: r}]);-->
+<!--        </script>-->
     </p:remoteCommand>
 </ui:composition>

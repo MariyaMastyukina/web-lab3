@@ -54,7 +54,7 @@
             </table>
             <br/>
             <h:commandButton type="submit" value="Submit" action="#{resultBean.execute}"/>
-            <h:commandButton type="submit" value="Reset" action="#{resultBean.remove}"/>
+            <h:commandButton type="submit" value="Reset" id="reset_button" action="#{resultBean.remove}"/>
         </h:form>
     </td>
     <h:outputScript library="js" name="main.js"/>
