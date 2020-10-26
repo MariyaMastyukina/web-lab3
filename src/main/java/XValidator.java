@@ -16,8 +16,8 @@ public class XValidator implements Validator {
             BigDecimal max = new BigDecimal(5);
             if (x_value.compareTo(max) >= 0 || x_value.compareTo(min) <= 0)
                 throw new ValidatorException(new FacesMessage("Введенные данные не входят в диапозон значений Х"));
-        } catch (NumberFormatException | NullPointerException e) {
-            throw new ValidatorException(new FacesMessage("Неверный формат введенных значений для Х"));
+        } catch (NullPointerException e) {
+            throw new ValidatorException(new FacesMessage("Строка не может быть пустой Х"));
         }
     }
 }

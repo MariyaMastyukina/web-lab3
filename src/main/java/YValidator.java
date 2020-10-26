@@ -15,9 +15,9 @@ public class YValidator implements Validator {
             BigDecimal min = new BigDecimal(-3);
             BigDecimal max = new BigDecimal(5);
             if (y_value.compareTo(max) >= 0 || y_value.compareTo(min) <= 0)
-                throw new ValidatorException(new FacesMessage("Введенные данные не входят в диапозон значений Х"));
+                throw new ValidatorException(new FacesMessage("Введенные данные не входят в диапозон значений Y"));
         } catch (NumberFormatException | NullPointerException e) {
-            throw new ValidatorException(new FacesMessage("Неверный формат введенных значений для Х"));
+            throw new ValidatorException(new FacesMessage("Неверный формат введенных значений для Y"));
         }
     }
 }

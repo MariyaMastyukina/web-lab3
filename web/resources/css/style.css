@@ -120,5 +120,10 @@
   font-weight: bold;
   cursor: pointer;
 }
-
+.messages{
+  color: #800000;
+  font-family: monospace;
+  font-weight: bolder;
+  font-size: 15px;
+}
 /*# sourceMappingURL=style.css.map */

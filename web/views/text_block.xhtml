@@ -5,18 +5,22 @@
             <h:outputLabel for="x_value" class="values">X_value</h:outputLabel>
             <br/>
             <h:inputText placeholder="Enter X value (-5..5)" id="x_value" class="input_text" value="#{resultBean.responseObject.x_value}">
+                <f:converter converterId="x_converter"/>
                 <f:validator validatorId="x_validator"/>
                 <f:ajax render="x-error"/>
             </h:inputText>
-            <h:message id="x-error" for="x_value"/>
+            <br/>
+            <h:message class="messages" id="x-error" for="x_value"/>
             <br/>
             <h:outputLabel for="y_value" class="values">Y_value</h:outputLabel>
             <br/>
             <h:inputText placeholder="Enter Y value (-3..5)" id="y_value" class="input_text" value="#{resultBean.responseObject.y_value}">
+                <f:converter converterId="y_converter"/>
                 <f:validator validatorId="y_validator"/>
                 <f:ajax render="y-error"/>
             </h:inputText>
-            <h:message id="y-error" for="y_value"/>
+            <br/>
+            <h:message id="y-error" class="messages" for="y_value"/>
             <br/>
             <h:outputLabel class="values">R_value</h:outputLabel>
             <br/>
