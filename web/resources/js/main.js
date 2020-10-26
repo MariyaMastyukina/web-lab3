@@ -7,13 +7,8 @@ Array.prototype.slice.call(document.getElementsByClassName("r_value")).forEach((
         //change color
         button.style.backgroundColor = "#D8BFD8";
         button.classList.add("r_active");
-        //update SVGpoints
+        //update SVG points
         updatePoints();
     });
-});
-document.getElementById("reset_button").addEventListener('click',()=>{
-    document.querySelectorAll("circle").forEach((e) => e.remove());
-    localStorage.setItem('dots','');
-    dots='';
 });
 

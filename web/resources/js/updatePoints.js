@@ -1,7 +1,6 @@
 let r = 0;
-
 function updatePoints() {
-    if (dots!=='') {
+    if (dots !== '') {
         dots = '';
         Array.prototype.slice.call(document.getElementsByClassName("r_value")).forEach((button) => {
             if (button.classList.contains("r_active")) r = button.value;

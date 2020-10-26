@@ -14,6 +14,9 @@ document.getElementById('svg').addEventListener('click', e => {
     });
     console.log("r = " + r);
     if (r !== 0) {
+        let x = (cx - 150) * r / 100;
+        let y = (150 - cy) * r / 100;
+        sendJsf([{name: "x", value: x}, {name: "y", value: y}, {name: "r", value: r}]);
         createPoint(cx, cy, r);
         savePoints(cx, cy, r, dots);
     } else {
@@ -46,8 +49,14 @@ function savePoints(cx, cy, r) {
     dots += cx.toString() + ';' + cy.toString() + ';' + r.toString() + ';';
     localStorage.setItem('dots', dots);
 }
-function checkArea(cx,cy,r){
-    let x= (cx - 150) * r / 100;
-    let y=(150-cy)*r/100;
-    return (x>=0&&y>=x-r&&x * x + y * y <= r * r)||(x<=0&&y>=0&&x>=-r/2&&y<=r);
+
+function checkArea(cx, cy, r) {
+    let x = (cx - 150) * r / 100;
+    let y = (150 - cy) * r / 100;
+    return (x >= 0 && y >= x - r && x * x + y * y <= r * r) || (x <= 0 && y >= 0 && x >= -r / 2 && y <= r);
+}
+
+
+function sendJsf() {
+
 }
