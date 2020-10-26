@@ -26,7 +26,7 @@ public class ResultBean implements Serializable {
         responseObject = new ResponseObject();
         responses = new ArrayList<>();
         dbController = new DataBaseController();
-//        dbController.init();
+        dbController.init();
         //init responses
     }
 
@@ -84,7 +84,6 @@ public class ResultBean implements Serializable {
         System.out.println(x);
         System.out.println(y);
         System.out.println(r);
-        System.out.println("good");
         execute();
     }
 

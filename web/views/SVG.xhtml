@@ -7,7 +7,8 @@
             <polygon fill="black" points="150,0 144,15 156,15" stroke="black"/>
             <polygon fill="black" points="300,150 285,156 285,144" stroke="black"/>
 
-            <polygon fill="#D8BFD8" fill-opacity="0.5" points="150,250 150,150 250,150" stroke="#BC8F8F" stroke-width="2"/>
+            <polygon fill="#D8BFD8" fill-opacity="0.5" points="150,250 150,150 250,150" stroke="#BC8F8F"
+                     stroke-width="2"/>
 
             <polygon fill="#D8BFD8" fill-opacity="0.5" points="150,150 150,50 100,50 100,150"
                      stroke="#BC8F8F" stroke-width="2"/>
@@ -44,12 +45,8 @@
 
         </svg>
     </td>
+    <h:outputScript library="js" name="addPoints.js"/>
+    <h:outputScript library="js" name="updatePoints.js"/>
     <p:remoteCommand name="sendJsf" action="#{resultBean.getJs}" update="result_table">
-<!--        <script>-->
-<!--            let cx = SVGPoint.x;-->
-<!--            let x = (cx - 150) * r / 100;-->
-<!--            let y = (150 - cy) * r / 100;-->
-<!--            sendJsf([{name: "x", value: x}, {name: "y", value: y}, {name: "r", value: r}]);-->
-<!--        </script>-->
     </p:remoteCommand>
 </ui:composition>

@@ -1,10 +1,11 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
                 xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
     <td>
         <h:form id="text_block">
             <h:outputLabel for="x_value" class="values">X_value</h:outputLabel>
             <br/>
-            <h:inputText placeholder="Enter X value (-5..5)" id="x_value" class="input_text" value="#{resultBean.responseObject.x_value}">
+            <h:inputText a:placeholder="Enter X value (-5..5)" id="x_value" class="input_text" value="#{resultBean.responseObject.x_value}">
                 <f:converter converterId="x_converter"/>
                 <f:validator validatorId="x_validator"/>
                 <f:ajax render="x-error"/>
@@ -14,7 +15,7 @@
             <br/>
             <h:outputLabel for="y_value" class="values">Y_value</h:outputLabel>
             <br/>
-            <h:inputText placeholder="Enter Y value (-3..5)" id="y_value" class="input_text" value="#{resultBean.responseObject.y_value}">
+            <h:inputText a:placeholder="Enter Y value (-3..5)" id="y_value" class="input_text" value="#{resultBean.responseObject.y_value}">
                 <f:converter converterId="y_converter"/>
                 <f:validator validatorId="y_validator"/>
                 <f:ajax render="y-error"/>

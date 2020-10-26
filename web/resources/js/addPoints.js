@@ -55,9 +55,9 @@ function checkArea(cx, cy, r) {
     let y = (150 - cy) * r / 100;
     return (x >= 0 && y >= x - r && x * x + y * y <= r * r) || (x <= 0 && y >= 0 && x >= -r / 2 && y <= r);
 }
-let modal = document.getElementById('modal_window:myModal');
-let span_text = document.getElementById('modal_window:span_text');
 function showModalWindow(text) {
+    let modal = document.getElementById('modal_window:myModal');
+    let span_text = document.getElementById('modal_window:span_text');
     // alert(span_text.innerText);
     modal.style.display = "block";
     span_text.innerText = text;
