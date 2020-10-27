@@ -10,8 +10,13 @@ public class XConverter implements Converter {
     @Override
     public Object getAsObject(FacesContext facesContext, UIComponent uiComponent, String s) {
         try {
-            BigDecimal x_value = new BigDecimal(s);
-            return x_value;
+            if (!s.equals("")) {
+                BigDecimal x_value = new BigDecimal(s);
+                return x_value;
+            }
+            else {
+                return null;
+            }
         }
         catch(NumberFormatException e){
             throw new ConverterException(new FacesMessage( "Неверный формат для Х"));

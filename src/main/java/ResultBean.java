@@ -67,8 +67,6 @@ public class ResultBean implements Serializable {
                 System.out.println(s.toString());
             }
             FacesContext.getCurrentInstance().getExternalContext().redirect("../views/main.xhtml");
-        } else {
-            //TODO sth
         }
     }
 

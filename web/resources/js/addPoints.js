@@ -16,9 +16,11 @@ document.getElementById('svg').addEventListener('click', e => {
     if (r !== 0) {
         let x = (cx - 150) * r / 100;
         let y = (150 - cy) * r / 100;
-        sendJsf([{name: "x", value: x}, {name: "y", value: y}, {name: "r", value: r}]);
-        createPoint(cx, cy, r);
-        savePoints(cx, cy, r, dots);
+        if (checkODZ(cx, cy, r)) {
+            sendJsf([{name: "x", value: x}, {name: "y", value: y}, {name: "r", value: r}]);
+            createPoint(cx, cy, r);
+            savePoints(cx, cy, r, dots);
+        } else showModalWindow("Значения не входят в область допустимых значений!");
     } else {
         showModalWindow("Выберите значение для R!\n"+"Не расстраивайте котика...")
     }
@@ -53,7 +55,14 @@ function savePoints(cx, cy, r) {
 function checkArea(cx, cy, r) {
     let x = (cx - 150) * r / 100;
     let y = (150 - cy) * r / 100;
+    //return (x >= -5 && x <= 5 && y >= -3 && y <= 5);
     return (x >= 0 && y >= x - r && x * x + y * y <= r * r) || (x <= 0 && y >= 0 && x >= -r / 2 && y <= r);
+}
+
+function checkODZ(cx, cy, r){
+    let x = (cx - 150) * r / 100;
+    let y = (150 - cy) * r / 100;
+    return (x >= -5 && x <= 5 && y >= -3 && y <= 5);
 }
 function showModalWindow(text) {
     let modal = document.getElementById('modal_window:myModal');

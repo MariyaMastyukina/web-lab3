@@ -17,7 +17,6 @@ public class XValidator implements Validator {
             if (x_value.compareTo(max) >= 0 || x_value.compareTo(min) <= 0)
                 throw new ValidatorException(new FacesMessage("Введенные данные не входят в диапозон значений Х"));
         } catch (NullPointerException e) {
-            throw new ValidatorException(new FacesMessage("Строка не может быть пустой Х"));
         }
     }
 }
